@@ -1,6 +1,9 @@
-# FIFA World Cup 2022 - DSP Data Visualization ⚽
+# FIFA World Cup 2022 - DSP Data Visualization 
+
 
 <div align="center">
+<img src="static/LOGO.png" alt="HumSearch Logo" width="120" height="120"/>
+
 
 <br/>
 <br/>
@@ -19,8 +22,9 @@
 
 
 <p align="center" style="display:flex; align-items:flex-start; gap:10px;">
-  <img src="media/photos/photos/Screen-02.png" alt="HumSearch Interface" width="45%" />
-  <img src="media/photos/photos/Screen-01.png" alt="HumSearch Results" width="45%" />
+  <img src="static/Photos/FIFA_Screen-01.png" alt="HumSearch Interface" width="45%" />
+  <img src="static/Photos/Fifa-02.png" alt="HumSearch Results" width="45%" />
+  <img src="static/Photos/Fifa-03.png" alt="HumSearch Results" width="45%" />
 </p>>
 </div>
 
