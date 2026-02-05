@@ -1,0 +1,189 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIFA World Cup 2022 - Goal Visualizer</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+    <div class="header-content">
+        <!-- Enhanced Logo -->
+        <div class="logo">
+             <img src="static\LOGO.png" alt="FIFA WC 2022 Goal Visualizer" class="logo">
+            <div>
+                <div class="logo-text">FIFA WC 2022</div>
+                <div class="logo-subtitle">Goal Visualizer</div>
+            </div>
+        </div>
+        
+        <!-- Search Bar -->
+        <div class="search-container">
+            <div class="search-wrapper">
+                <input 
+                    type="text" 
+                    class="search-input" 
+                    id="searchInput"
+                    placeholder="Search matches (team names, stadium, date...)"
+                    autocomplete="off"
+                >
+                <span class="search-icon">🔍</span>
+                
+                <!-- Search Results Dropdown -->
+                <div class="search-results-dropdown" id="searchResultsDropdown">
+                    <div class="search-result-header">
+                        <span>Matches</span>
+                        <span class="result-count" id="searchResultCount">0 results</span>
+                    </div>
+                    <div class="search-results-list" id="searchResultsList">
+                        <!-- Results will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Enhanced Stats -->
+        <div class="header-stats">
+            <div class="stat-badge">
+                <span class="stat-icon">🏆</span>
+                <span>Matches</span>
+                <span id="matchCount">0</span>
+            </div>
+            <div class="stat-badge">
+                <span class="stat-icon">⚽</span>
+                <span>Goals</span>
+                <span id="totalGoals">0</span>
+            </div>
+            <!-- Theme Toggle (Optional) -->
+            <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</header>
+
+        <main class="main">
+            <section class="matches-section">
+                <h2 class="section-title">
+                    <span class="title-icon">🏆</span>
+                    World Cup Matches
+                </h2>
+                <div class="matches-grid" id="matchesGrid">
+                    </div>
+            </section>
+        </main>
+
+        <div class="modal" id="goalsModal">
+            <div class="modal-overlay"></div>
+            <div class="modal-container">
+                <div class="modal-header">
+                    <div class="modal-title-group">
+                        <h3 class="modal-title" id="matchTitle">Match Goals</h3>
+                        <span class="modal-subtitle" id="matchGoalCount">0 Goals</span>
+                    </div>
+                    <button class="modal-close" id="goalsCloseBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="goals-grid" id="goalsGrid">
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="pitchModal">
+            <div class="modal-overlay"></div>
+            <div class="modal-container pitch-modal">
+                <div class="modal-header">
+                    <div class="modal-title-group">
+                        <h3 class="modal-title" id="pitchMatchTitle">Goal Visualization</h3>
+                        <div class="goal-details">
+                            <span class="goal-scorer" id="goalScorerName">-</span>
+                            <span class="goal-minute" id="goalMinute">-</span>
+                        </div>
+                    </div>
+                    <button class="modal-close" id="pitchCloseBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body pitch-modal-body">
+                    <div class="pitch-wrapper">
+                        <div class="dual-pitch-container" id="dualPitchContainer">
+                            <div class="query-pitch-section" id="queryPitchSection">
+                                <div class="pitch-container">
+                                    <canvas id="pitchCanvas"></canvas>
+                                    <div class="player-tooltip" id="playerTooltip"></div>
+                                </div>
+                                <div class="query-events-list" id="queryEventsList">
+                                    </div>
+                            </div>
+
+                            <div class="comparison-pitch-section" id="comparisonPitchSection" style="display: none;">
+                                <div class="pitch-container comparison-pitch">
+                                    <canvas id="comparisonCanvas"></canvas>
+                                    <div class="player-tooltip" id="comparisonTooltip"></div>
+                                </div>
+                                <div class="comparison-events-list" id="comparisonEventsList">
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="search-buttons" id="searchButtons">
+                            <select class="search-method-select" id="searchMethodSelect">
+                                <option value="hybrid" selected>Hybrid (DTW+TF-IDF)</option>
+                                <option value="dtw">DTW Only</option>
+                                <option value="tfidf">TF-IDF Only</option>
+                            </select>
+                            <button class="search-btn" id="searchSequenceBtn">🔍 Search Similar Sequence</button>
+                        </div>
+                        <div class="pitch-legend" id="pitchLegend">
+                            <div class="legend-item">
+                                <span class="legend-dot home"></span>
+                                <span>Home Team</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-dot away"></span>
+                                <span>Away Team</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-dot ball"></span>
+                                <span>Ball</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pass-sequence-panel">
+                        <div class="panel-header-row">
+                            <h4 class="panel-title" id="panelTitle">Pass Sequence</h4>
+                            <button class="back-btn" id="searchBackBtn" style="display: none;">← Back</button>
+                        </div>
+                        <div class="pass-sequence-list" id="passSequenceList">
+                            </div>
+                        <div class="search-results" id="searchResults" style="display: none;">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const matchesData = {{ matches|safe }};
+    </script>
+    <script src="{% static 'js/pitch.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>
