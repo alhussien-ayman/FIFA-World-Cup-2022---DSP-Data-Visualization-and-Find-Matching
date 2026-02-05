@@ -17,6 +17,11 @@
 
 <br/>
 
+
+<p align="center" style="display:flex; align-items:flex-start; gap:10px;">
+  <img src="media/photos/photos/Screen-02.png" alt="HumSearch Interface" width="45%" />
+  <img src="media/photos/photos/Screen-01.png" alt="HumSearch Results" width="45%" />
+</p>>
 </div>
 
 ---
@@ -306,42 +311,6 @@ The semantic search system works by:
 
 ---
 
-## 🔮 Future Enhancements
-
-- [ ] Real-time match analysis integration
-- [ ] Player-specific similarity searches
-- [ ] Heat map generation for play patterns
-- [ ] Export analysis reports (PDF/CSV)
-- [ ] Machine learning-based outcome prediction
-- [ ] Multi-tournament comparison
-- [ ] Advanced filtering by match context
-- [ ] 3D pitch visualization
-- [ ] API endpoints for external integration
-- [ ] Mobile app development
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
----
-
-## 🙏 Acknowledgments
-
-- FIFA World Cup 2022 data providers
-- FastDTW algorithm developers
-- scikit-learn community
-- Django framework contributors
-
----
-
 ## 👥 Team
 
 - **Alhussien Ayman**
@@ -358,9 +327,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 For questions, suggestions, or collaboration opportunities, please reach out to the team or open an issue on GitHub.
 
 ---
-
-<div align="center">
-
-**Made with passion for football and data science** 🏆
-
-</div>
