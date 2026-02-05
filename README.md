@@ -22,9 +22,9 @@
 
 
 <p align="center" style="display:flex; align-items:flex-start; gap:10px;">
-  <img src="static/Photos/FIFA_Screen-01.png" alt="HumSearch Interface" width="45%" />
-  <img src="static/Photos/Fifa-02.png" alt="HumSearch Results" width="45%" />
-  <img src="static/Photos/Fifa-03.png" alt="HumSearch Results" width="45%" />
+  <img src="static/Photos/FIFA_Screen-01.png" alt="HumSearch Interface" width="20%" />
+  <img src="static/Photos/Fifa-02.png" alt="HumSearch Results" width="40%" />
+  <img src="static/Photos/Fifa-03.png" alt="HumSearch Results" width="40%" />
 </p>>
 </div>
 
