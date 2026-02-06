@@ -36,6 +36,8 @@ FIFA World Cup 2022 - DSP Data Visualization is a sophisticated platform that co
 
 Ever wondered which goals had similar buildup patterns? Or which plays shared the same tactical execution? This platform solves these challenges by applying DTW (Dynamic Time Warping) and TF-IDF semantic analysis to football event data, revealing hidden patterns in the beautiful game.
 
+Link of Datasets : https://drive.google.com/drive/folders/1_a_q1e9CXeEPJ3GdCv_3-rNO3gPqacfa
+
 ### Why FIFA DSP Visualization?
 
 - ⚽ **Advanced Analytics** - leverage DSP algorithms for football analysis
