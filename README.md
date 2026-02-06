@@ -73,8 +73,7 @@ Ever wondered which goals had similar buildup patterns? Or which plays shared th
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/DSPFINALFIFA-MAIN.git
-cd DSPFINALFIFA-MAIN
+git clone https://github.com/alhussien-ayman/FIFA-World-Cup-2022-DSP-Data-Visualization-and-Find-Matching
 ```
 
 2. **Create a virtual environment** (recommended)
